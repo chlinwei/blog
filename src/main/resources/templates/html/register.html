@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" th:href="@{/css/common/rightTools.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<!--注册-->
+<div class="register_main">
+    <div class="register_wrapper">
+        <form>
+            <div class="welcome">欢迎注册</div>
+            <div class="userName_wrapper">
+                <label for="userName">用户名：</label>
+                <input id="userName" name="userName" type="text" placeholder="请输入用户名">
+                <div id="userNameErrorMsg" class="errorMsg" style="display: none"></div>
+            </div>
+
+            <div class="passwd_wrapper">
+                <label for="userName">密码：</label>
+                <input id="passwd" name="passwd" type="password" placeholder="请输入密码">
+                <div id="passwdErrorMsg" class="errorMsg" style="display: none"></div>
+            </div>
+
+            <!--<div class="email_wrapper">-->
+                <!--<label for="email">邮箱：</label>-->
+                <!--<input id="email" name="email" type="text" placeholder="请输入邮箱">-->
+            <!--</div>-->
+            <!--<div class="phone_wrapper">-->
+                <!--<label for="phone">手机号：</label>-->
+                <!--<input id="phone" name="phone" type="text" placeholder="请输入手机号">-->
+            <!--</div>-->
+            <div class="gender_wrapper">
+                <label>性别：</label>
+                <div>
+                    <input id="boy" name="gender" type="radio" checked="checked" value="男">
+                    <label for="boy" class="icon">
+                        <img th:src="@{/image/boy.png}">
+                    </label>
+                    <input id="girl" name="gender" type="radio" value="女">
+                    <label for="girl" class="icon">
+                        <img th:src="@{/image/girl.png}">
+                    </label>
+                </div>
+            </div>
+            <div class="register_wrapper">
+                <div>
+                    <input id="register" class="register fl" type="submit" value="注册">
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div th:replace="html/common/footer::footer"></div>
+<div id="div" th:replace="html/common/rightTools::rightTools">
+</div>
+<script th:src="@{js/common/util.js}"></script>
+<script th:src="@{js/register.js}"></script>
+
+</body>
+</html>

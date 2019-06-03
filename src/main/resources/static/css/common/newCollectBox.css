@@ -1,0 +1,102 @@
+.newCollectBox{
+    display: none;
+}
+.newCollectBox .mask{
+    z-index: 9999998;
+    width: 100%;
+    height: 734px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    opacity: 0.2
+}
+
+.newCollectBox .content_wrapper {
+    width: 420px;
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;
+    display: inline-block;
+    position: fixed;
+    z-index: 9999999;
+    left: 632px;
+    top: 100px;
+}
+.newCollectBox .title {
+    position: relative;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #222;
+    border-bottom: 1px solid #e5e9ef;
+    text-align: center;
+}
+
+.newCollectBox .title img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    content: url(../../image/cross.png);
+}
+.newCollectBox .edit-info{
+    padding:25px 20px;
+}
+.newCollectBox .edit-info .name_wrapper .name{
+    height: 30px;
+    line-height: 30px;
+    width:100%;
+    display: block;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+.newCollectBox .edit-info .brief_wrapper label{
+    display: inline-block;
+}
+
+
+.newCollectBox .edit-info .brief_wrapper .brief{
+    display: block;
+    width:100%;
+    box-sizing: border-box;
+    height: 138px;
+    border: 1px solid #ccd0d7;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 5px 12px 24px;
+    margin-top: 8px;
+    overflow: auto;
+    resize: none;
+}
+.newCollectBox .sub_wrapper{
+    text-align: center;
+}
+
+.newCollectBox .sub{
+    width: 65px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #00a1d6;
+    text-align: center;
+    border-radius: 4px;
+    margin: 8px auto 0;
+    cursor: pointer;
+}
+
+.newCollectBox .name_wrapper{
+    position: relative;
+}
+
+.name_errorMsg{
+    position:absolute;
+    left:100px;
+    height: 25px;
+    color:#fff;
+    font-size:13px;
+    display: none;
+    background-color: #ff5422;
+}

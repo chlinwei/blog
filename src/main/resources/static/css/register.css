@@ -1,0 +1,74 @@
+.register_main{
+    margin:150px auto;
+    text-align: center;
+}
+
+
+form>div>label,input{
+    margin:5px auto;
+    display: block;
+    width:400px;
+    text-align: left;
+}
+
+form>div>label{
+    font-weight: 600;
+    font-size:15px;
+}
+form>div>input{
+    height:30px;
+    font-size:15px;
+}
+
+.gender_wrapper>div{
+    width:400px;
+    margin: 5px auto;
+    text-align: left;
+}
+
+.gender_wrapper div input{
+    display: inline-block;
+    width:20px;
+}
+
+.gender_wrapper div .icon img{
+    width:18px;
+    height:18px;
+}
+
+.register_wrapper>div{
+    width:400px;
+    margin: 5px auto;
+    text-align: left;
+}
+
+.register{
+    background-color: #f56467;
+    width:65px;
+    height: 40px;
+    text-align: center;
+    color:white;
+    border:0;
+    border-radius: 5px;
+}
+
+
+.welcome{
+    font-weight: 600;
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+
+.errorMsg{
+    width:400px;
+    color:#CC0000;
+    display: inline-block;
+    text-align: left;
+    font-size: 13px;
+}
+
+
+
+

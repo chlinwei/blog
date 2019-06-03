@@ -1,0 +1,51 @@
+.main{
+    margin:30px 130px;
+}
+
+.pagination{
+    text-align: center;
+    margin-bottom:50px;
+}
+
+
+.main-left{
+    width:60%;
+}
+.main-right{
+    margin-left:50px;
+    width:34%;
+}
+.mod{
+    margin-bottom:25px;
+    padding:20px;
+    border: 1px solid #e3e3e3;
+}
+
+.title{
+    font-weight: 600;
+    font-size:18px;
+}
+
+.content{
+    margin-top:10px;
+}
+
+
+.articleTitle{
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+.articleTitle img{
+    content: url("../image/dot_on.png");
+    width:30px;
+    height:30px;
+    vertical-align: top;
+}
+
+

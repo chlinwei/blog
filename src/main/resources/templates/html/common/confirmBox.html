@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--确认取消提示框框-->
+<div class="confirmAndCancelBox box" style="display:none" th:fragment="confirmBox">
+    <div class="msgBox">
+        <div class="mask">
+        </div>
+        <div class="confirmBox">
+            <img th:src="@{/image/cross.png}">
+            <div class="clear"></div>
+            <div style="text-align: center">
+                <p class="msg">提示信息</p>
+                <div>
+                    <button class="confirmBtn">确定</button>
+                    <button class="cancelBtn">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--单纯的提示框框-->
+<div class="noticeBox box" th:fragment="noticeBox" style="display: none">
+<div class="msgBox">
+    <div class="mask">
+    </div>
+    <div class="confirmBox">
+        <img th:src="@{/image/cross.png}">
+        <div class="clear"></div>
+        <div style="text-align: center">
+            <p class="msg">提示信息</p>
+        </div>
+    </div>
+</div>
+    </div>
+</body>
+</html>

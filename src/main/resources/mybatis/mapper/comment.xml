@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.CommentDao">
+    <select id="getAllComments" resultType="lw.pers.blog.model.Comment">
+        select * from comment WHERE articleId=#{articleId} AND pId=0 ORDER BY id desc
+    </select>
+
+    <select id="getReplies" resultType="lw.pers.blog.model.Comment">
+        select * from comment WHERE pId=#{pId};
+    </select>
+
+    <delete id="delOne">
+        DELETE FROM comment WHERE id=#{id} AND fromUid=#{fromUid}
+    </delete>
+
+    <delete id="delRepliesBypId">
+        DELETE FROM comment WHERE pId=#{pId};
+
+    </delete>
+
+    <select id="getComment" resultType="lw.pers.blog.model.Comment">
+        select * from comment WHERE id=#{id} AND fromUid=#{fromUid}
+    </select>
+
+    <insert id="insertComment"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO comment (articleId,authorId, content, fromUid, floor)
+        VALUES (#{comment.articleId},#{comment.authorId}, #{comment.content}, #{comment.fromUid},
+                (SELECT floor  from (select count(*)+1 as floor  from comment where articleId=#{comment.articleId} and pId=0) as t))
+    </insert>
+
+    <insert id="insertReply" keyProperty="id" useGeneratedKeys="true">
+        insert into comment(articleId,authorId,pId,content, fromUid,toUid)values(#{comment.articleId},#{comment.authorId},#{comment.pId},#{comment.content},#{comment.fromUid},#{comment.toUid})
+    </insert>
+    
+    <select id="getSumByArticleId" resultType="java.lang.Integer">
+        select count(*) from comment WHERE articleId=#{articleId};
+    </select>
+    <select id="getReplyIdsByPid"  resultType="java.lang.Integer" >
+        select id from comment WHERE pid=#{pId}
+    </select>
+    <delete id="delCommentsByArticleId">
+        DELETE FROM comment WHERE articleId=#{articleId}
+    </delete>
+    <select id="countCommentsByAuthorId" resultType="java.lang.Integer">
+        select count(*) from comment WHERE  authorId=#{authorId}
+    </select>
+    <select id="getAllcommentNum" resultType="java.lang.Integer">
+        SELECT count(*) from comment
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.DraftDao">
+    <select id="getDraftList" resultType="lw.pers.blog.model.Article">
+        SELECT * from draft WHERE userId=#{userId} ORDER BY id desc
+    </select>
+
+    <delete id="delOne">
+        DELETE from draft WHERE userId=#{userId} and id=#{id}
+    </delete>
+
+    <select id="getOne" resultType="lw.pers.blog.model.Article">
+        SELECT * from draft WHERE id=#{id} and userId=#{userId}
+    </select>
+    <insert id="saveDraft" parameterType="lw.pers.blog.model.Article" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO draft(articleTitle, articleContent, articleTags, articleType, summary, customTypeId, userId)
+                VALUES (#{article.articleTitle},#{article.articleContent},#{article.articleTags},#{article.articleType},#{article.summary},#{article.customTypeId},#{article.userId})
+    </insert>
+    
+    <update id="updateDraft" parameterType="lw.pers.blog.model.Article">
+        update draft set articleTitle=#{article.articleTitle},articleType=#{article.articleType},
+            articleContent=#{article.articleContent},articleTags=#{article.articleTags},
+            summary=#{article.summary},customTypeId=#{article.customTypeId} WHERE id=#{article.id} and userId=#{article.userId}
+    </update>
+    
+</mapper>

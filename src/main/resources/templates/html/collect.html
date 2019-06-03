@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/newCollectBox.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+
+    <link rel="stylesheet" th:href="@{/css/collect.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div></div>
+<div class="main">
+    <div class="main-wrapper">
+        <div class="main-left fl">
+            <div class="collect">
+                <div class="name">默认收藏夹</div>
+                <div class="brief_wrapper">
+                    简介：
+                    <span class="brief"></span>
+                </div>
+            </div>
+            <div class="newBtn_wrapper"><a class="newBtn"><img>新建收藏夹</a></div>
+            <div class="collect-list">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="main-right fl">
+            <div class="content">
+                <div class="content-list">
+                    <!--<div class="item" data-id="">-->
+                        <!--<div class="articleHead">-->
+                            <!--<a class="articleTitle">-->
+                                <!--HashMap为什么是线程不安全的？-->
+                            <!--</a>-->
+                            <!--<div class="info">-->
+                                <!--<span class="createTime"><img>2019-09-10</span>-->
+                                <!--<a href="" data-id="1" class="author"><img><span>lw</span></a>-->
+                                <!--<a href="" class="customType"><img class=""><span class="customTypeName">java开发</span></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="articleBrief">-->
+                            <!--这是一篇来自字节跳动的凉经，面试过程很不顺畅。-->
+                            <!--视频面试：40分钟https的加密过程？为什么要用客户端这边的会话密钥进行加密，直接用服务器端的公私钥不行吗？说一说https的CA证书原理？进程间调度方式有哪些？进程间通信方式有哪些？说说进程和线程的区别吧-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <!--分页-->
+            <div class="pagination"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<div th:replace="html/common/newCollectBox::newCollectBox"></div>
+<div th:replace="html/common/confirmBox::noticeBox"></div>
+
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+<script th:src="@{/js/common/newCollectBox.js}"></script>
+<script th:src="@{/js/common/paging.js}"></script>
+<script th:src="@{/js/collect.js}"></script>
+</body>
+</html>

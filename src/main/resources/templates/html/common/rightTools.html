@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="rightTools" th:fragment="rightTools">
+    <a class="icon write_nav" title="写博客" href="" style="display: block;" th:href="@{/editor}">
+        <img th:src="@{/image/write.png}">
+    </a>
+    <a class="icon" title="返回顶部" style="display: none" href="javascript:void(0)" id="goToTop">
+        <script type="application/javascript">
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 0){
+                    $("#goToTop").show();
+                    $('#goToTop').fadeIn();
+                }else{
+                    $('#goToTop').fadeOut();
+                }
+            });
+            $('#goToTop').click(function(){
+                $('html ,body').animate({scrollTop: 0}, 100);
+                return false;
+            });
+        </script>
+        <img th:src="@{/image/top.png}">
+    </a>
+</div>
+</body>
+</html>

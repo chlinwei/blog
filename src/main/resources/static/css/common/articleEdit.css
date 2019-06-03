@@ -1,0 +1,201 @@
+.editor_title{
+    margin-bottom: 20px;
+}
+.title_wrapper{
+    margin: 10px 20px;
+    border:1px solid #d8d8d8;
+}
+.title_left{
+    height:50px;
+    line-height: 50px;
+    width:6%;
+    position: relative;
+    border-right:1px solid #d8d8d8;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.title_right{
+    width:94%;
+    height:50px;
+    vertical-align: middle;
+}
+.title_left>p{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.title_right>input{
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    border:0;
+    padding: 10px 0 10px 13px;
+    box-sizing: border-box;
+    font-size:14px;
+}
+.title_left .drop_down a{
+    font-size:14px;
+}
+.title_left:hover span{
+    border-width:0 5px 5px;
+    border-color:transparent transparent #9c9c9c;/*透明 透明  灰*/
+}
+.title_wrapper .drop_head.on+.drop_down{
+    display: block!important;
+}
+
+
+#my-editormd{
+    height: 600px !important;
+}
+.customType_wrapper{
+    display: inline-block;
+    position: relative;
+    margin-left:47px;
+    height: 34px;
+}
+
+.customType{
+    display: inline-block;
+    width:400px;
+    line-height: 34px;
+}
+
+
+/**
+当drop head为on时,drop_down才显示
+ */
+.customType_wrapper .drop_head.on+.drop_down{
+    display: block !important;
+}
+
+.customType_wrapper .drop_down{
+    overflow-y: scroll;
+    max-height: 120px;
+}
+.editor-left{
+    line-height: 34px;
+    margin-right:15px;
+    font-weight: 700;
+    font-size: 17px;
+    color: #969696;
+    display: inline-block;
+}
+.editor-right{
+    border:1px solid #b1b1b1;;
+    position: relative;
+}
+
+
+.editor-right:hover>span{
+    border-width:0 5px 5px;
+    border-color:transparent transparent #9c9c9c;/*透明 透明  灰*/
+}
+
+.tags_wrapper{
+    width:815px;
+    margin-left:47px;
+}
+
+.tags{
+    box-sizing: border-box;
+    height: 34px;
+    line-height: 34px;
+}
+
+.addTagBtn img{
+    width:20px;
+    height:20px;
+    vertical-align: middle;
+}
+.tags_wrapper>.editor-right{
+    border:0;
+}
+.tags_wrapper .addTagBtn{
+    cursor: pointer;
+    color: #1583ff;
+}
+.tagDvi>div{
+    display: inline-block;
+    color: #761dff;
+    margin-right:5px;
+}
+
+.tagDvi>div>span{
+    background-color: #cecece;
+}
+
+.summary_wrapper{
+    margin-left:47px;
+    margin-bottom:30px;
+    position: relative;
+}
+
+.summary{
+    overflow-y: scroll;
+    width:415px;
+    height:100px;
+    border:0;
+    resize: none;
+}
+
+
+.footer_wrapper{
+    position: fixed;
+    width:100%;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+.footer{
+    width: 90%;
+    min-width: 1000px;
+    margin:0 auto;
+}
+.footer-right>input:first-of-type{
+    color: #239f39;
+    background-color: #FFF;
+}
+.footer-right>input:last-of-type{
+    color: #FFF;
+    background-color: #ff5422;
+}
+
+.footer-right>input{
+    display: inline-block;
+    width: 110px;
+    height: 40px;
+    border-radius: 15px;
+    margin-left:15px;
+}
+
+
+
+.editorErrorBox_wrapper{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 55px;
+    z-index: 1001;
+}
+
+.editorErrorBox{
+    font-size:16px;
+    color:#fff;
+    line-height: 59px;
+    text-align: center;
+    border-radius: 10px;
+    margin:0 auto;
+    width:260px;
+    height:56px;
+    background-color: rgba(63,63,63,0.9);
+}
+
+.editorErrorBox span img{
+    vertical-align: middle;
+    width:25px;
+    height:25px;
+}

@@ -1,0 +1,102 @@
+.main-right_userInfo{
+    width:60%;
+    margin-top:70px;
+    margin-left:150px;
+    padding-bottom: 200px;
+}
+.userInfo .gender_wrapper>div{
+    display: inline-block;
+}
+.userInfo .gender_wrapper>div label img{
+    width:19px;
+    height:19px;
+}
+.gender_wrapper>div label{
+    width:70px;
+}
+.gender_wrapper>div>*{
+    height:40px;
+    line-height:40px;
+}
+
+.phone{
+    display: inline-block;
+    font-size:15px;
+}
+
+
+.userInfo .personalBrief_wrapper{
+    height: 100px;
+    position: relative;
+    border-bottom:0;
+}
+.personalBrief{
+    height: 100px;
+    width:50%;
+    position: relative;
+
+}
+.personalBrief_wrapper>label{
+    display: inline-block;
+}
+
+.personalBrief_wrapper hr{
+    margin-top:23px;
+    margin-bottom:23px;
+}
+
+.avatar_wrapper{
+    text-align: left;
+    height:150px;
+}
+
+
+.avatar-right{
+    height:100px;
+    width:100px;
+    margin-left:50px;
+    position: relative;
+}
+
+.avatar-right a{
+    line-height: 40px;
+    text-align: center;
+    width:85px;
+    height:40px;
+    position: absolute;
+    top:28px;
+    border: 1px solid #4aaa4a;
+    border-radius: 25px;
+    color: #4aaa4a
+}
+.avatar-right input{
+    opacity: 0;
+    line-height: 40px;
+    text-align: center;
+    width:85px;
+    height:40px;
+    position: absolute;
+    top:28px;
+}
+
+
+
+.avatar-left{
+    width:100px;
+    height:100px;
+}
+.avatar-left img{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+}
+
+
+.saveBtn{
+    margin-bottom: 70px;
+}
+.saveBtn_wrapper{
+    border-bottom: 0!important;
+}
+
+

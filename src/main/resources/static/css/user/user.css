@@ -1,0 +1,80 @@
+html,body{
+    height:100%;
+    position:relative;
+    overflow:hidden;
+}
+.main{
+    height:100%;
+    position: relative;
+}
+.main-right{
+    height:100%;
+    width:80%;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+
+
+.userInfo{
+    text-align: left;
+}
+
+.formLabel{
+    font-weight: 700;
+    font-size:17px;
+    color:#969696;
+    width:150px;
+    display: inline-block;
+}
+.userInfo form>div{
+    height:40px;
+    line-height:40px;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 9px;
+}
+.formInput{
+    border-radius: 4px;
+    height: 25px;
+    font-size:15px;
+    border:1px solid #dedede;
+    background-color: hsla(0,0%,71%,.1);
+}
+
+
+
+.formHr{
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    margin-bottom:20px;
+}
+
+
+
+/*错误盒子*/
+.errorBox{
+    display: inline-block;
+    height:20px;
+    font-size:12px;
+    color:red;
+}
+
+
+
+.blueBtn{
+    width:80px;
+    height:40px;
+    line-height: 40px;
+    border-radius: 4px;
+    color: #fff;
+    background: #4285f4;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0 10px;
+    color: #4285f4;
+    cursor: pointer;
+}

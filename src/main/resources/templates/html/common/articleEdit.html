@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+
+    <link rel="stylesheet" th:href="@{/css/common/articleEdit.css}">
+    <!--editormd编辑库-->
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.logo.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.preview.css}">
+    <script th:src="@{/webjars/editor.md/1.5.0/editormd.js}"></script>
+
+    <!--自己的model相关操作-->
+    <script th:src="@{/js/common/model/customType.js}"></script>
+
+</head>
+<body>
+
+<div th:replace="html/common/header::header"></div>
+
+<div class="editor_wrapper" th:fragment="articleEdit">
+    <div class="editor_title">
+        <div class="title_wrapper">
+            <div class="title_left fl">
+                <div class="drop_head">
+                    <p id="articleType" style="display: inline-block">请选择</p>
+                    <span class="triangle_down"></span>
+                </div>
+                <div class="drop_down" style="display: none">
+                    <a href="javascript:void(0)">原创</a>
+                    <a href="javascript:void(0)">转载</a>
+                </div>
+            </div>
+            <div class="title_right fr">
+                <input id="articleTitle" type="text" placeholder="请输入文章标题">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="editor_write">
+        <div id="my-editormd">
+            <!-- 书写与实时显示的textarea -->
+            <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;"></textarea>
+            <!-- 用于后端获取md稳当内容，Java中：request.getParameter("my-editormd-html-code")。 -->
+            <!--<textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>-->
+        </div>
+    </div>
+
+    <hr class="com_hr">
+
+    <div class="customType_wrapper">
+        <div class="editor-left fl">
+            个人分类:
+        </div>
+        <div class="editor-right fl">
+            <div class="drop_head">
+                <p class="customType" id="customType" data-id="">请选择</p>
+                <span class="triangle_down"></span>
+            </div>
+            <!--下拉列表-->
+            <div class="drop_down" style="display: none">
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <hr class="com_hr">
+    <div class="tags_wrapper">
+        <div class="editor-left fl">
+            文章标签:
+        </div>
+        <div class="editor-right fl">
+            <!--保存标签的div-->
+            <div class="tagDvi fl"></div>
+
+            <div class="addTagBtn fl">
+                <img th:src="@{/image/addTag1.png}">
+                添加标签
+            </div>
+            <span style="color:#afafaf">&nbsp;&nbsp;最多添加5个标签</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <hr class="com_hr">
+    <div class="summary_wrapper">
+        <div class="editor-left fl">
+            文章摘要:
+        </div>
+        <div class="editor-right fl">
+            <textarea id="summary" class="summary" placeholder="请填写文章摘要，最多支持500字，如不填写会默认抓取正文前200字"></textarea>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <div class="footer_wrapper">
+        <div class="footer">
+            <div class="footer-left fl"></div>
+            <div class="footer-right fr">
+                <input style="display: none" type="button" class="noticeMessage" value="" th:if="!${#strings.contains(#request.getRequestURI(),'update')}">
+                <input type="button" class="draftBtn" value="保存草稿" th:if="!${#strings.contains(#request.getRequestURI(),'update')}">
+                <input type="button" id="pubBtn" class="publishBtn" value="发布文章">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="errorBox" class="editorErrorBox_wrapper" style="display: none">
+        <div class="editorErrorBox">
+        <span id="errorMsg">
+            <img th:src="@{/image/editorWarning.png}">
+            文章标签不能含有特殊字符";"
+        </span>
+        </div>
+    </div>
+
+</div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/articleEdit.js}"></script>
+</body>
+</html>

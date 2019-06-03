@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.VisitorDao">
+    <select id="getVisitors" resultType="lw.pers.blog.model.Visitor">
+        select * from  visitor WHERE userId=#{userId} order by id desc;
+    </select>
+    
+    <delete id="delVisitor">
+        DELETE FROM visitor WHERE userId=#{userId} and visitorId=#{visitorId}
+    </delete>
+
+    <insert id="insertVisitor">
+        INSERT INTO visitor(visitorId,visitTime,userId)VALUES(#{visitorId},now(),#{userId})
+    </insert>
+
+    <select id="countVisitor" resultType="java.lang.Integer">
+        select count(*) from visitor where userId=#{userId}
+    </select>
+
+    <delete id="delOldestVisitor">
+        delete from visitor WHERE userId=#{userId} limit 1 ;
+    </delete>
+
+    <select id="getVisitor" resultType="lw.pers.blog.model.Visitor">
+        select * from visitor WHERE visitorId=#{visitorId} and userId=#{userId};
+    </select>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.UserDao">
+
+    <select id="getUserById" resultType="lw.pers.blog.model.User">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+
+    <select id="getUserByUserName" resultType="lw.pers.blog.model.User">
+        SELECT * FROM user WHERE userName=#{userName}
+    </select>
+
+    <select id="getUserInfo" resultType="lw.pers.blog.model.User">
+        select * from user WHERE userName=#{userName}
+    </select>
+
+    <select id="getUserInfoById" resultType="lw.pers.blog.model.User">
+        select * from user WHERE id=#{id}
+    </select>
+
+    <!--插入一个用户-->
+    <insert id="insertUser" parameterType="lw.pers.blog.model.User" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO user(userName, passwd, gender)VALUES (#{userName},#{passwd},#{gender})
+    </insert>
+
+
+    <select id="getUserNameAndRolesByUserName" resultMap="map1">
+        SELECT * FROM user
+        WHERE userName=#{userName};
+    </select>
+    <resultMap id="map1" type="lw.pers.blog.model.User">
+        <result column="userName" property="userName"></result>
+        <collection property="roles" column="id" ofType="lw.pers.blog.model.Role" select="s1"></collection>
+    </resultMap>
+    <select id="s1"  resultType="lw.pers.blog.model.Role" >
+        select role.id  ,role.name
+        from user_role
+        left join role  on user_role.roleId=role.id
+        where user_role.userId =#{id}
+    </select>
+
+
+    <insert id="insertRole">
+      INSERT INTO user_role(userId, roleId) VALUES (#{userId},#{roleId})
+    </insert>
+
+    <update id="updateAvatarImgUriByUserName">
+        update user set avatarImgUri=#{avatarImgUri} WHERE userName = #{userName}
+    </update>
+
+    <update id="updateUserInfo">
+        update user set userName=#{user.userName},phone=#{user.phone},birthday=#{user.birthday},
+            email=#{user.email},gender=#{user.gender},personalBrief=#{user.personalBrief},
+            sign=#{user.sign}
+        where userName=#{oldName}
+    </update>
+
+    <select id="getAvatarImgUriByUserName" resultType="java.lang.String">
+        select avatarImgUri from user WHERE userName=#{userName}
+    </select>
+    
+    <update id="updatePasswd">
+        update user set passwd=#{newPasswd} WHERE userName=#{userName}
+    </update>
+
+    <update id="updateLastLoginTime">
+        UPDATE  user set lastLoginTime=now() WHERE id=#{userId}
+    </update>
+</mapper>

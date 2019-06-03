@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common/rightTools.css}">
+    <link rel="stylesheet" th:href="@{/css/common/articleList.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+
+
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+
+<div class="main">
+    <div class="main-left fl">
+        <!--文章内容-->
+        <div class="content-list"></div>
+    </div>
+    <div class="main-right fl">
+        <!--公告-->
+        <div class="mod notice">
+            <p class="title">公告</p>
+            <div class="content">
+                求一份java初级职位
+            </div>
+        </div>
+
+        <!--博文动态-->
+        <div class="mod latestArticle">
+            <p class="title">博文动态</p>
+            <div class="content">
+                <ul></ul>
+            </div>
+        </div>
+        <!--推荐作者,暂无-->
+        <!--<div class="mod authors">-->
+            <!--<p class="title">推荐作者</p>-->
+            <!--<div class="content">-->
+                <!--<ul></ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--网站信息-->
+        <div class="mod website">
+            <p class="title">网站信息</p>
+            <div class="content">
+                <div class="articleNum">
+                    <label>文章总数</label>
+                    <span></span>
+                </div>
+                <div class="commentNum">
+                    <label>评论总数</label>
+                    <span></span>
+                </div>
+
+                <div class="webInfo">
+                    <p>网站最后一次更新时间：</p>
+                    <P class="websiteUpdateTime"></P>
+                    <p>网站网站运行天数：</p>
+                    <P class="websiteRunningTime"></P>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="pagination"></div>
+<div th:replace="html/common/footer::footer"></div>
+<div id="div" th:replace="html/common/rightTools::rightTools"></div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/articleList.js}"></script>
+<script th:src="@{/js/common/paging.js}"></script>
+<script th:src="@{/js/index.js}"></script>
+</body>
+</html>

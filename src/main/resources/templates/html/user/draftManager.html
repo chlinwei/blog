@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <script th:src="@{/js/common/paging.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+    <link rel="stylesheet" th:href="@{/css/user/user.css}">
+    <link rel="stylesheet" th:href="@{/css/user/draftManager.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/blogLeft::blogLeft"></div>
+    <div class="main-right fl">
+        <div class="main-right_draft">
+            <div class="head">
+                <p>草稿列表</p>
+            </div>
+            <div class="content">
+                <table class="draft-list">
+                    <thead>
+                    <tr>
+                        <td class="choice">选择</td>
+                        <td class="articleTitle">标题</td>
+                        <td class="updateTime">保存日期</td>
+                        <td class="opt">操作</td>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="bottom">
+                    <label class="fl">
+                        <input type="checkbox" class="checkAll">&nbsp;&nbsp;全选
+                    </label>
+                    <div class="removeMany blueBtn fl">
+                        删除
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <!--清除浮动,不然无法撑起父元素-->
+    <div class="clear"></div>
+</div>
+
+<div th:replace="html/common/confirmBox::confirmBox"></div>
+<div th:replace="html/common/confirmBox::noticeBox"></div>
+
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/user/draftManager.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+
+</body>
+</html>

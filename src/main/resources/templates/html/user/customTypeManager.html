@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+
+    <link rel="stylesheet" th:href="@{/css/user/customTypeManager.css}">
+    <link rel="stylesheet" th:href="@{/css/user/user.css}">
+
+
+    <!--自己model相关的js-->
+    <script th:src="@{/js/common/model/customType.js}"></script>
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/blogLeft::blogLeft"></div>
+    <div class="main-right fl">
+        <div class="main-right_customTypeManager">
+            <div class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <td style="width:65%">分类</td>
+                        <td style="width:35%">删除</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="bottom">
+                    <p class="fl addBtn">添加分类</p>
+                    <p class="fr blueBtn saveBtn">保存</p>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--清除浮动,不然无法撑起父元素-->
+    <div class="clear"></div>
+    <div th:replace="html/common/confirmBox::confirmBox"></div>
+    <div th:replace="html/common/confirmBox::noticeBox"></div>
+</div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+<script th:src="@{/js/user/customTypeManager.js}"></script>
+</body>
+</html>

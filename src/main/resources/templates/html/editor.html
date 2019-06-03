@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <!--判断-->
+    <script th:src="@{/js/lib/ifvisible.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/rightTools.css}">
+    <link rel="stylesheet" th:href="@{/css/common/articleEdit.css}">
+    <!--editormd编辑库-->
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.logo.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.preview.css}">
+    <script th:src="@{/webjars/editor.md/1.5.0/editormd.js}"></script>
+
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/articleEdit::articleEdit"></div>
+</div>
+<input type="hidden" class="draftId" value="">
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/articleEdit.js}"></script>
+<script th:src="@{/js/editor.js}"></script>
+</body>
+</html>

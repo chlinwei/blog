@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common/rightTools.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+    <link rel="stylesheet" th:href="@{/css/common/collectBox.css}">
+    <link rel="stylesheet" th:href="@{/css/article.css}">
+    <link rel="stylesheet" th:href="@{/css/editor.css}">
+
+    <!--editormd编辑库-->
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.logo.css}">
+    <link rel="stylesheet" th:href="@{/webjars/editor.md/1.5.0/css/editormd.preview.css}">
+    <script th:src="@{/webjars/editor.md/1.5.0/editormd.js}"></script>
+    <!--editormd展示库,注意:下面引入的库是有顺序的-->
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/marked.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/prettify.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/raphael.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/underscore.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/flowchart.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/jquery.flowchart.min.js}"></script>
+    <script th:src="@{/webjars/editor.md/1.5.0/lib/sequence-diagram.min.js}"></script>
+
+
+    <!--model-->
+    <script th:src="@{/js/common/model/collect.js}"></script>
+
+
+    <script th:inline="javascript">
+        var articleId = [[${articleId}]];
+    </script>
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+
+
+<div class="main">
+    <div class="article_wrapper">
+        <!--和文章相关的-->
+        <div class="article">
+            <div class="article-top">
+                <div class="article-title">
+                    <h1 data-id="" id="articleTitle"></h1>
+                </div>
+                <div class="article-info">
+                    <div id="articleType" class="articleType"></div>
+                    <div class="publishDate_wrapper">
+                        <a><img th:src="@{/image/date.png}"><span id="publishDate"></span></a>
+                    </div>
+                    <div class="user_wrapper">
+                        <a target="_blank"><img id="avatarUrl"><span id="userName"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-content">
+                <div id="content">
+                    <textarea style="display:none;" name="editormd-markdown-doc" id="mdText"></textarea>
+                </div>
+            </div>
+            <div class="article-bottom">
+                <div class="copyright">
+                    ©著作权归作者所有：来自林威博客作者<span id="author" class="author"></span>的原创作品，如需转载，请注明出处，否则将追究法律责任
+                </div>
+                <!--标签,文章分类-->
+                <div class="other">
+                    <div class="fl other-left">
+                        <!--这里动态生成标签-->
+                    </div>
+                    <div class="fr other-right">
+                        <div id="customType_wrapper">
+                            <a><img th:src="@{/image/folder.png}"><span id="customTypeName"></span></a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--上一篇和下一篇-->
+                <div class="last_next">
+                    <div class="last fl">
+                        <a id="last" class="last"></a>
+                    </div>
+                    <div class="left fr">
+                        <a id="next" class="next"></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--喜欢,收藏,删除,修改-->
+                <div class="like_div">
+                    <div class="left fl">
+                        <div class="like_wrapper">
+                            <a id="likeBtn" href="javascript:void(0);">
+                                <img th:src="@{/image/like.png}">
+                                喜欢
+                                <span class="like" id="like"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right fr">
+                        <div id="own" style="display: inline-block">
+                            <!--如果是自己的文章,这里会动态生成删除和修改按钮-->
+                        </div>
+                        <a class="collectBtn"><img th:src="@{/image/collect.png}">收藏</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--评论-->
+            </div>
+        </div>
+        <!--和评论相关的-->
+        <div class="comment">
+            <div class="comment-top">
+                <!--登录了-->
+                <div class="comment-wrapper" sec:authorize="isAuthenticated()">
+                    <div class="comment-avatar fl">
+                        <a><img th:src="${session.userInfo.avatarUrl}" style="width:48px;height:48px"></a>
+                    </div>
+                    <div class="comment-input fr">
+                        <textarea class="comment_content" placeholder="这里评论"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="commentBtn_wrapper">
+                        <button class="commentCancel">取消</button>
+                        <button class="commentPub" onclick="insertComment()">发布</button>
+                    </div>
+                </div>
+                <!--没有登录-->
+                <div class="comment-wrapper" sec:authorize="!isAuthenticated()">
+                    <div class="comment-avatar fl">
+                        <a><img th:src="@{/image/avatar.png}" style="width:48px;height:48px"></a>
+                    </div>
+                    <div class="comment-input fr">
+                        <div class="noLoginBtn">
+                            请先<a th:href="@{/login}">登录</a>后在评论
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="commentBtn_wrapper">
+                    </div>
+                </div>
+            </div>
+            <div class="comment-bottom">
+                <div class="comment-number">
+                    <p><span class="commentSum"></span>条评论</p>
+                </div>
+                <div class="comment-list"></div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="html/common/confirmBox::confirmBox"></div>
+<div th:replace="html/common/confirmBox::noticeBox"></div>
+
+<div id="div" th:replace="html/common/rightTools::rightTools"></div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+<script th:src="@{/js/common/collectBox.js}"></script>
+<script th:src="@{/js/article.js}"></script>
+<script th:src="@{/js/common/paging.js}"></script>
+
+</body>
+</html>

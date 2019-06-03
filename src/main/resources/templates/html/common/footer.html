@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="footer" th:fragment="footer">
+    <div class="footer_wrapper">
+        <div class="copyright">
+            <span>© 2019 林威所有</span>
+        </div>
+        <div class="icp">
+            <a href="">蜀ICP备18000229号</a>
+        </div>
+        <div>
+            <img th:src="@{/image/police.png}">
+            <a href="">川公网安备 51011402000164号</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

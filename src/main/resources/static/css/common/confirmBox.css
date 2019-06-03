@@ -1,0 +1,46 @@
+.confirmBox{
+    display: inline-block;
+    position: fixed;
+    z-index: 9999999;
+    left: 632px;
+    top: 200px;
+    width:260px;
+    padding-bottom: 40px;
+    background: #fff;
+    border:1px solid #cccccc;
+}
+.confirmAndCancelBox .confirmBox p{
+    margin-bottom: 20px;
+}
+.confirmBox>img{
+    float:right;
+    width:25px;
+    height:25px;
+}
+.confirmBox>img:hover{
+    /*图片会旋转*/
+    transform: rotate(30deg);
+}
+.confirmAndCancelBox .confirmBox button{
+    width:70px;
+    height:30px;
+    border-radius: 5px;
+}
+.confirmAndCancelBox .confirmBox .confirmBtn{
+    margin-right:20px;
+    background: rgb(66, 133, 244);;
+    color:#fff;
+}
+.confirmAndCancelBox .confirmBox .cancelBtn{
+    background-color: #fff;
+}
+.mask{
+    z-index: 9999998;
+    width: 100%;
+    height: 734px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    opacity: 0.2;
+}

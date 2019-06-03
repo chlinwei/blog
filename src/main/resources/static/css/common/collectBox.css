@@ -1,0 +1,203 @@
+.collectBox{
+    display: block;
+}
+
+.collectBox .content_wrapper{
+    width: 420px;
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;
+    display: inline-block;
+    position: fixed;
+    z-index: 9999999;
+    left: 632px;
+    top: 100px;
+}
+
+.collectBox .mask{
+    z-index: 9999998;
+    width: 100%;
+    height: 734px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    opacity: 0.2;
+}
+
+
+.collectBox ul{
+    padding:0;
+    list-style-type: none;
+    position: relative;
+    margin-top: 24px;
+    min-height: 210px;
+}
+
+.collectBox .content{
+    padding: 0 36px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.collectBox .title{
+    position: relative;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #222;
+    border-bottom: 1px solid #e5e9ef;
+    text-align: center;
+}
+.collectBox .title img{
+    width:30px;
+    height:30px;
+    vertical-align: middle;
+    content:url("../../image/cross.png");
+}
+.collectBox .group-list{
+    max-height: 300px;
+    padding-bottom: 14px
+}
+.collectBox ul li{
+    cursor: pointer;
+    padding-bottom: 24px;
+    font-size: 14px;
+    color: #222;
+}
+.collectBox ul li label{
+    cursor: pointer;
+    display: block;
+}
+.collectBox .count{
+    float: right;
+    color: #6d757a;
+    font-size: 12px;
+}
+
+.collectBox .group-list input[type=checkbox]{
+    width: 0;
+    height: 0;
+    display: none;
+}
+.collectBox .group-list li i{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 18px;
+    vertical-align: middle;
+}
+
+.collectBox .group-list li input[type=checkbox]+i{
+    background:url("../../image/uncheck.png");
+}
+
+.collectBox .group-list li:hover input[type=checkbox]+i{
+    background:url("../../image/check_hover.png");
+}
+
+.collectBox .group-list li input[type=checkbox]:checked+i{
+    background:url("../../image/checked.png");
+}
+
+.collectBox .add-group{
+    margin-bottom: 5px;
+    width: 348px;
+    position: relative;
+}
+.collectBox  .add-group img{
+    width:23px;
+    height:23px;
+    vertical-align: middle;
+    margin-right:10px;
+    content: url("../../image/addTag1.png");
+}
+
+.collectBox .addBtn{
+    font-size: 12px;
+    color: #6d757a;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ccd0d7;
+    border-radius: 4px;
+    display: block;
+}
+
+
+.collectBox .bottom{
+    height: 76px;
+    text-align: center;
+    margin: 0 36px;
+    border-top: 1px solid #e5e9ef
+}
+.collectBox .confirmBtn{
+    font-size: 14px;
+    width: 160px;
+    height: 40px;
+    margin-top: 18px;
+    background: #00a1d6;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+.collectBox .confirmBtn.disable{
+    background-color: #e5e9ef;
+    color: #b8c0cc;
+}
+.collectBox .collection-mask{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(0,0%,100%,.5);
+}
+.collectBox .newBtn_wrapper{
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #00a1d6;
+    border-radius: 4px;
+    position: relative;
+}
+
+.collectBox .name{
+    border: none;
+    font-size: 12px;
+    width: 200px;
+    margin-left: 10px;
+    padding: 0;
+    box-shadow: none;
+    height: 90%;
+    /*去掉当input聚焦时产生的蓝色线条*/
+    outline:none;
+}
+
+.collectBox .newBtn_wrapper{
+    display: none;
+}
+.collectBox .newBtn{
+    float: right;
+    height: 34px;
+    width: 90px;
+    background: #d9f1f9;
+    border: none;
+    border-left: 1px solid #00a1d6;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: #00a1d6;
+    cursor: pointer;
+}
+.errorMsg{
+    height: 20px;
+    font-size: 12px;
+    color: red;
+    display: none;
+    position: absolute;
+    top:-20px;
+}
+
+

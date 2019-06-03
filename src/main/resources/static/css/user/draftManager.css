@@ -1,0 +1,59 @@
+.main-right_draft{
+    margin:30px 60px;
+}
+.head{
+    font-size:16px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.draft-list{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.draft-list td{
+    padding: 8px 0;
+}
+.draft-list tr{
+    border: 1px solid #e0e0e0;
+}
+.draft-list thead{
+    background-color: #f5f5f5;
+}
+
+.choice{
+    text-align: center;
+    width: 10%;
+}
+
+.articleTitle{
+    text-align: left;
+    width: 50%;
+}
+.updateTime{
+    text-align: center;
+    width: 20%;
+}
+
+.op{
+    text-align: center;
+    width: 12%;
+}
+
+.title{
+    text-align: left;
+}
+
+.bottom{
+    margin-top:25px;
+}
+
+.removeMany{
+    margin-left:20px;
+    height: 30px;
+    line-height: 30px;
+}
+
+

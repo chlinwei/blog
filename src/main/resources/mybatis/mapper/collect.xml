@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.CollectDao">
+    <insert id="insertCollect" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO collect(name, brief, userId,isDefault) VALUES(#{collect.name},#{collect.brief},#{collect.userId},#{collect.isDefault})
+    </insert>
+
+    <delete id="delCollect">
+        DELETE FROM collect WHERE id=#{id} AND userId=#{userId}
+    </delete>
+
+    <select id="getCollects" resultType="lw.pers.blog.model.Collect">
+        SELECT * from collect where  userId=#{userId}
+    </select>
+
+    <select id="countArticlesByCollectId" resultType="java.lang.Integer">
+        select count(*) from article_collect WHERE collectId=#{collectId}
+    </select>
+    <insert id="collectArticle">
+        INSERT into article_collect(articleId,authorId, collectId,userId) VALUES (#{articleId},#{authorId},#{collectId},#{userId})
+    </insert>
+
+    <select id="isContainArticle" resultType="java.lang.Integer">
+        select count(*) from article_collect WHERE collectId=#{collectId} and articleId=#{articleId} and userId=#{userId}
+    </select>
+    <delete id="undoCollectArticle">
+        DELETE FROM article_collect WHERE articleId=#{articleId} AND collectId=#{collectId} AND userId=#{userId}
+    </delete>
+
+    <select id="getArticleIdsByCollect" resultType="java.lang.Integer">
+        select articleId from  article_collect WHERE collectId=#{collectId} AND userId=#{userId}
+    </select>
+    <select id="getCollectById" resultType="lw.pers.blog.model.Collect">
+        SELECT * FROM collect WHERE userId=#{userId} AND id=#{id}
+    </select>
+    <select id="getDefaultCollect" resultType="lw.pers.blog.model.Collect">
+        select * from  collect WHERE userId=#{userId} AND isDefault=1
+    </select>
+    <update id="updateCollect">
+        update collect set name = #{collect.name}, brief=#{collect.brief} where id=#{collect.id} AND userId=#{collect.userId}
+    </update>
+    <delete id="delArticlesByCollect">
+        DELETE FROM article_collect WHERE collectId=#{collectId} AND userId=#{userId}
+    </delete>
+
+    <delete id="delArticleByArticleId">
+        DELETE FROM article_collect WHERE articleId=#{articleId}
+    </delete>
+
+    <select id="getSumByArticleId" resultType="java.lang.Integer">
+        select count(*) from  article_collect WHERE articleId=#{articleId};
+    </select>
+    <select id="getSumByAuthorId" resultType="java.lang.Integer">
+        select count(*) from  article_collect WHERE authorId=#{authorId};
+    </select>
+</mapper>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/pubArticle_success.css}">
+    <script th:inline="javascript">
+        var articleId = [[${articleId}]];
+    </script>
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div class="main_wrapper">
+        <div class="content">
+            <div class="successBox">
+                <p class="title">
+                    <img>
+                    发布成功
+                </p>
+                <p class="text">一分耕耘一分收获</p>
+                <div class="articleBox">
+                    <a th:href="@{/article/{articleId}(articleId=${articleId})}" class="look">查看文章</a>
+                    <a th:href="@{/update/{articleId}(articleId=${articleId})}" class="edit">编辑文章</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/pubArticle_success.js}"></script>
+</body>
+</html>

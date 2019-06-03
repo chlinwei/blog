@@ -1,0 +1,16 @@
+.footer{
+    text-align: center;
+    color: #999;
+    font-size:13px;
+    line-height:20px;
+}
+
+.footer a{
+    color: #999;
+}
+
+.footer_wrapper>div{
+    height:20px;
+}
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+
+    <link rel="stylesheet" th:href="@{/css/user/securitySetting.css}">
+    <link rel="stylesheet" th:href="@{/css/user/user.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/blogLeft::blogLeft"></div>
+    <div class="main-right fl">
+        <div class="main-right_setting">
+            <div class="settting_wrapper">
+                <form>
+                    <div class="passwd_wrapper">
+                        <label for="passwd" class="formLabel">新密码</label>
+                        <input id="passwd" type="password" class="formInput" name="passwd">
+                        <span class="errorBox passwdErrorBox" style="display: none"></span>
+                        <hr class="formHr">
+                    </div>
+                    <div class="repasswd_wrapper">
+                        <label for="repasswd" class="formLabel">确认密码</label>
+                        <input id="repasswd" type="password" class="formInput" name="repasswd">
+                        <span class="errorBox repasswdErrorBox" style="display: none"></span>
+                        <hr class="formHr">
+                    </div>
+                    <div>
+                        <button id="settingSaveBtn" class="saveBtn" type="button">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--清除浮动,不然无法撑起父元素-->
+    <div class="clear"></div>
+</div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/user/securitySetting.js}"></script>
+</body>
+</html>

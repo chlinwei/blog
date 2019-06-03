@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+
+    <link rel="stylesheet" th:href="@{/css/user/user.css}">
+    <link rel="stylesheet" th:href="@{/css/user/articleManager.css}">
+
+    <script th:src="@{/js/common/paging.js}"></script>
+
+    <!--自己model相关的js-->
+    <script th:src="@{/js/common/model/customType.js}"></script>
+
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/blogLeft::blogLeft"></div>
+    <div class="main-right fl">
+        <div class="main-right_articleManager">
+            <div class="content">
+                <!--搜索条件框框-->
+                <div class="selectBox">
+                    <!--文章分类-->
+                    <div class="customType fl pullDown">
+                        <div class="drop_head">
+                            <p id="customType" style="display: inline-block" data-id="">全部分类</p>
+                            <span class="triangle_down "></span>
+                        </div>
+                        <div class="drop_down" style="display: none">
+                            <a href="javascript:void(0)" data-id="">全部分类</a>
+                        </div>
+                    </div>
+                    <!--文章类型-->
+                    <div class="articleType fl pullDown">
+                        <div class="drop_head">
+                            <p id="articleType" style="display: inline-block" data-id="">全部</p>
+                            <span class="triangle_down"></span>
+                        </div>
+                        <div class="drop_down" style="display: none">
+                            <a href="javascript:void(0)">全部</a>
+                            <a href="javascript:void(0)">原创</a>
+                            <a href="javascript:void(0)">转载</a>
+                        </div>
+                    </div>
+                    <!--查找按钮-->
+                    <div class="searchBtn blueBtn fr">
+                        查找
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--文章列表-->
+                <table class="articleBox">
+                    <thead>
+                    <tr>
+                        <td style="width:10%;">选择</td>
+                        <td style="width:30%;">标题</td>
+                        <td style="width:10%;">类型</td>
+                        <td style="width:15%;">分类</td>
+                        <td style="width:15%;">发布日期</td>
+                        <td style="width:20%;">操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="bottom">
+                    <!--label包围input的原因时是能够让复选框垂直对齐-->
+                    <label class="fl" for="checkAll" >
+                        <input type="checkbox" name="checkAll" id="checkAll" class="checkAll">
+                        全选
+                    </label>
+                    <p class="fl">&nbsp;&nbsp;&nbsp;移动到</p>
+                    <div class="customType pullDown fl">
+                        <div class="drop_head">
+                            <p style="display: inline-block" data-id="">选择分类</p>
+                            <span class="triangle_down "></span>
+                        </div>
+                        <div class="drop_down" style="display: none">
+                        </div>
+                    </div>
+                    <div class="removeMonyBtn blueBtn fl">
+                        删除
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="html/common/confirmBox::confirmBox"></div>
+<div th:replace="html/common/confirmBox::noticeBox"></div>
+</body>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/user/articleManager.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+
+</html>

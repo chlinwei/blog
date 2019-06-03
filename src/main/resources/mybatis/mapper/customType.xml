@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.CustomTypeDao">
+    <insert id="insertCustomType">
+        INSERT INTO customType(name, userId) VALUES (#{customType.name},#{customType.userId})
+    </insert>
+
+    <select id="getAll" resultType="java.util.HashMap">
+        SELECT id,name FROM customType WHERE userId=#{userId}
+    </select>
+
+    <select id="getCutomTypeById" resultType="lw.pers.blog.model.CustomType">
+        select * from customType WHERE id=#{id};
+    </select>
+
+    <delete id="delCustomTypeById">
+        DELETE FROM customType WHERE id=#{id} AND userId=#{userId}
+    </delete>
+
+    <update id="updateCustomType">
+        update customType set name=#{customType.name} WHERE userId=#{customType.userId} AND id=#{customType.id}
+    </update>
+</mapper>

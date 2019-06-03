@@ -1,0 +1,102 @@
+.main-right_articleManager{
+    width: 95%;
+    margin-top: 80px;
+    margin-left: 50px;
+    height: 100%;
+    text-align: left;
+}
+
+.content{
+    margin:20px;
+}
+
+.content .drop_head.on+.drop_down{
+    display: block!important;
+}
+
+.content .drop_head{
+    position: relative;
+}
+.content .drop_down{
+    overflow-y: scroll;
+}
+
+.selectBox>div{
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+}
+
+.pullDown{
+    border:1px solid #ccc;
+    margin-right:30px;
+}
+
+.pullDown p{
+    width:220px;
+}
+
+.selectBox>div>p{
+}
+
+
+.op>*{
+    display: inline-block;
+    padding: 0 10px;
+    color: #4285f4;
+    cursor: pointer;
+}
+
+.articleBox{
+    margin-bottom:20px;
+}
+.articleBox td{
+    text-align: center;
+    padding: 5px 0;
+}
+.articleBox tr{
+    height:45px;
+    border: 1px solid #e0e0e0;
+}
+
+.articleBox thead{
+    background-color: #f5f5f5;
+}
+
+
+
+.checkAll{
+    vertical-align:middle;
+    margin-right:20px;
+}
+
+
+
+.bottom{
+    height:30px;
+    line-height: 30px;
+}
+.bottom>*{
+    position: relative;
+}
+.content .bottom label{
+    margin-left:10px;
+}
+
+
+.bottom .customType{
+    margin-left:20px;
+}
+
+.bottom .removeMonyBtn{
+    height: 30px;
+    line-height: 30px;
+
+}
+
+
+
+.pagination{
+    margin-top:20px;
+    text-align: center;
+}

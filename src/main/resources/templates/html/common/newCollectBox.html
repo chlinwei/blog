@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+</head>
+<body>
+<div class="newCollectBox" th:fragment="newCollectBox">
+    <div class="mask"></div>
+    <div class="content_wrapper">
+        <div class="title">
+            添加到收藏夹
+            <img class="cross" style="float: right;">
+            <div style="clear: both;"></div>
+        </div>
+        <div class="edit-info">
+            <div class="name_wrapper">
+                <label for="name">
+                    收藏夹名称
+                </label>
+                <input class="name" type="text" maxlength="20" id="name" placeholder="收藏夹名称,最多可输入20个">
+                <div class="name_errorMsg"></div>
+            </div>
+            <div class="brief_wrapper">
+                <label for="brief">简介</label>
+                <textarea class="brief" id="brief" maxlength="200" placeholder="可填写简介,最多100个字"></textarea>
+            </div>
+            <div class="sub_wrapper">
+                <button class="sub">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

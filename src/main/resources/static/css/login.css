@@ -1,0 +1,78 @@
+.main{
+    margin:150px auto;
+}
+
+.login_wrapper{
+    margin:auto 50px;
+    text-align: center;
+}
+
+
+/*这使得里面的浮动元素得以居中*/
+.submit_remember_wrapper{
+    overflow:hidden;
+    display: inline-block;
+}
+
+form>div>input{
+    width:350px;
+    height:35px;
+    box-sizing: border-box;
+}
+
+/*配合submit_wrapper使用*/
+.float_wrapper{
+    width:350px;
+    height:35px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.float_wrapper>.remember{
+    font-size:13px;
+}
+.submit_wrapper>input{
+    height:100%;
+    padding:0 10px;
+    background-color: #f56467;
+    color:white;
+    border:0;
+    border-radius: 5px;
+}
+
+/*指的是左右两个浮动的div*/
+.float_wrapper>div{
+    height:100%;
+}
+.float_wrapper>div>*{
+    line-height: 35px;
+}
+
+
+.login_welcome{
+    height:40px;
+}
+
+.login_welcome span{
+    display: inline-block;
+    line-height: 40px;
+    height:40px;
+
+    font-style: italic;
+    font-weight: 600;
+    font-size:18px;
+}
+
+
+
+/*登录失败后显示的错误信息*/
+.login_errorMsg {
+    width:350px;
+    display: inline-block;
+    text-align: left;
+    color: #CC0000;
+    height:12px;
+    font-size:12px;
+    line-height:12px;
+}

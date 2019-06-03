@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header" th:fragment="header">
+    <script th:inline="javascript">
+        var contextPath=[[${#httpServletRequest.getContextPath()}]];
+        var userInfo = [[${session.userInfo}]];
+    </script>
+    <script>
+        var fileHost = "192.168.0.10";
+    </script>
+    <div class="header_wrapper">
+        <div class="navigates fl">
+            <ul class="fl">
+                <li class="fl index_nav">
+                    <a class="icon" th:href="@{/index}">
+                        <img th:src="@{/image/home.png}">
+                        首页
+                    </a>
+                </li>
+                <li class="fl link_nav">
+                    <a th:href="@{/friendlylink}" class="icon">
+                        <img th:src="@{/image/link.png}">
+                        友链
+                    </a>
+                </li>
+                <li class="fl withme_nav">
+                    <a class="icon">
+                        <img th:src="@{/image/withme.png}">
+                        关于我
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navigates fr">
+            <ul>
+                <li class="fl">
+                    <a class="icon write_nav" th:href="@{/editor}">
+                        <img th:src="@{/image/write.png}">
+                        写博客
+                    </a>
+                </li>
+                <li class="fl login_nav" sec:authorize="!isAuthenticated()">
+                    <a class="icon" th:href="@{/login}">
+                        <img th:src="@{/image/login.png}">
+                        登录
+                    </a>
+                </li>
+
+                <li class="fl" sec:authorize="!isAuthenticated()">
+                    <a class="icon" th:href="@{/register}">
+                        <img th:src="@{/image/register.png}">
+                        注册
+                    </a>
+                </li>
+
+                <!--我的头像-->
+                <li class="fl imgli" sec:authorize="isAuthenticated()">
+                    <a>
+                        <img id="headerImg" style="display: inline-block;width:30px;height:30px;border-radius: 50%;" th:src="${session.userInfo.avatarUrl}">
+                        <span class="triangle_down"></span>
+                    </a>
+                    <div class="drop_down" style="display: none">
+                        <a th:href="@{'/userBlog/'+${session.userInfo.id}}">博客主页</a>
+                        <a th:href="@{/user/userInfo}">个人主页</a>
+                        <a th:href="@{/collect}">收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;藏</a>
+                        <a th:href="@{/logout}">退出登录</a>
+                        <a>反&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;馈</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

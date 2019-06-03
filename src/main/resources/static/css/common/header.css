@@ -1,0 +1,84 @@
+.header_wrapper{
+    margin:0 auto;
+    width:1200px;
+    height:60px;
+}
+.header_wrapper>div{
+    height:60px;
+}
+
+.navigates ul{
+    margin-left:60px;
+}
+
+.navigates li{
+    margin-left:20px;
+    height:60px;
+}
+.navigates li>a{
+    display: inline-block;
+    line-height: 60px;
+    height:100%;
+}
+.navigates img{
+    vertical-align: middle;
+    height:16px;
+    width:16px;
+}
+
+.header{
+    border-bottom: 1px solid #dedede;
+}
+
+
+/*各种图标*/
+
+.index_nav:hover img{
+    content: url("../../image/home_on.png");
+}
+
+.link_nav:hover img{
+    content: url("../../image/link_on.png");
+}
+.withme_nav:hover img{
+    content: url("../../image/withme_on.png");
+}
+
+
+.write_nav:hover img{
+    content: url("../../image/write_on.png");
+}
+
+
+
+.login_nav:hover img{
+    content: url("../../image/login_on.png");
+}
+
+.logout_nav:hover img{
+    /*content: url("../../image/log_on.png");*/
+}
+
+.imgli .drop_down{
+    width:80px;
+    left:-24px;
+}
+.imgli .drop_down a{
+    height:24px;
+    font-size:12px;
+    text-align: center;
+}
+
+.imgli{
+    position: relative;
+}
+.imgli:hover .drop_down{
+    display: block !important;
+}
+
+.imgli:hover>a>span{
+    border-width:0 5px 5px;
+    border-color:transparent transparent #9c9c9c;/*透明 透明  灰*/
+}
+
+

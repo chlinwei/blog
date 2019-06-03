@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+
+    <link rel="stylesheet" th:href="@{/css/user/user.css}">
+    <link rel="stylesheet" th:href="@{/css/user/userInfo.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div th:replace="html/common/blogLeft::blogLeft"></div>
+    <div class="main-right fl">
+        <div class="main-right_userInfo">
+            <div class="avatar_wrapper">
+                <div class="avatar-left fl">
+                    <img id="avatarImg" th:src="${session.userInfo.avatarUrl}">
+
+                </div>
+                <div class="avatar-right fl">
+                    <a>更改头像</a>
+                    <input accept=".gif,.jpg,.jpeg,.png" name="avatar" id="avatar" type="file">
+                </div>
+            </div>
+            <div class="userInfo">
+                <form>
+                    <div class="userName_wrapper">
+                        <label for="userName" class="formLabel">用户名</label>
+                        <input id="userName" class="userName formInput" type="text">
+                        <span class="errorBox userNameErrorBox" style="display: none"></span>
+                    </div>
+                    <div class="phone_wrapper">
+                        <label class="formLabel">手机号</label>
+                        <!--<div id="phone" class="phone">15345710576</div>-->
+                        <input id="phone" class="phone formInput" type="text">
+                        <span class="errorBox phoneErrorBox" style="display: none"></span>
+                    </div>
+                    <div class="birthday_wrapper">
+                        <label for="birthday" class="formLabel">生&nbsp;&nbsp;&nbsp;日</label>
+                        <input id="birthday" class="birthday formInput" type="text">
+                    </div>
+                    <div class="email_wrapper" >
+                        <label for="email" class="formLabel">邮&nbsp;&nbsp;&nbsp;箱</label>
+                        <input id="email" class="email formInput" type="text">
+                        <span class="errorBox emailErrorBox" style="display: none"></span>
+                    </div>
+                    <div class="sign_wrapper">
+                        <label for="sign" class="formLabel">个性签名</label>
+                        <input class="sign formInput" id="sign" type="text" maxlength="50">
+                    </div>
+                    <div class="gender_wrapper">
+                        <label class="formLabel">性&nbsp;&nbsp;&nbsp;别</label>
+                        <div>
+                            <input id="boy" name="gender" type="radio" checked="checked" value="男">
+                            <label for="boy" class="icon">
+                                <img th:src="@{/image/boy.png}">
+                            </label>
+                            <input id="girl" name="gender" type="radio" value="女">
+                            <label for="girl" class="icon">
+                                <img th:src="@{/image/girl.png}">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="personalBrief_wrapper">
+                        <label class="formLabel">个人简介</label>
+                        <textarea id="personalBrief" class="personalBrief"></textarea>
+                    </div>
+                    <div style="height:30px;">
+                    </div>
+                    <div class="saveBtn_wrapper">
+                        <button id="saveBtn" class="saveBtn" type="button">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div th:replace="html/common/confirmBox::noticeBox"></div>
+
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/user/userInfo.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+</body>
+</html>

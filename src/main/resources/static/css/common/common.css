@@ -1,0 +1,142 @@
+ol, ul {
+    list-style: none;
+}
+* {
+    font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.tc {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    cursor:pointer;
+    color: #333;
+}
+a:hover {
+    color: #4285f4;
+}
+img {
+    border: none;
+}
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+
+body {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.75;
+    text-align: left;
+    background: #fff;
+
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+
+.saveBtn{
+    border-radius: 65px;
+    color: #fff;
+    background-color: #F37B1D;
+    border-color: #F37B1D;
+    width:60px;
+    height:30px;
+}
+
+
+/*向上*/
+.triangle_up{
+    display:inline-block ;
+    width:0;
+    height:0;
+    border-width:0 5px 5px;
+    border-style:solid;
+    border-color:transparent transparent #9c9c9c;/*透明 透明  灰*/
+}
+
+/*向下*/
+.triangle_down{
+    display:inline-block ;
+    width:0;
+    height:0;
+    border-width:5px 5px 0;
+    border-style:solid;
+    border-color: #9c9c9c transparent transparent;/*灰 透明 透明 */
+    position:relative;
+}
+
+/**
+下拉列表的div
+ */
+.drop_down{
+    width:100%;
+    position: absolute;
+    z-index: 1000;
+    border:1px solid #d8d8d8;
+    background: #FFF;
+    border-top:0;
+    padding-bottom: 10px;
+    padding-right:0;
+}
+
+.drop_down>a{
+    display: block;
+}
+
+.drop_down>a:hover{
+    background-color: #c5c5c5;
+}
+
+.com_hr{
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    margin-bottom:20px;
+}
+
+.com_margin_left{
+    margin-left:0;
+}
+
+
+
+
+/*分页*/
+.pagination .active{
+    background-color:red;
+}
+.pagination ul li{
+    display: inline-block;
+}
+
+.pagination ul li a{
+    padding:8px 16px;
+    color: #999;
+}
+
+.pagination ul li.active a{
+    background-color: #0e90d2;
+    color:#fff;
+}
+

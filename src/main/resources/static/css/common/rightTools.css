@@ -1,0 +1,13 @@
+.rightTools{
+    position: fixed;
+    right: 10px;
+    bottom: 120px;
+    z-index: 100;
+}
+.rightTools a{
+    display: block;
+}
+.rightTools a img{
+    width:35px;
+    height:35px;
+}

@@ -1,0 +1,137 @@
+.main{
+    margin:30px 0;
+}
+.main-top{
+    padding:30px 200px;
+    border-bottom: 1px solid #d7d7d7;;
+
+}
+.main-content{
+    margin: 0 150px 100px;
+}
+.content-right{
+    margin-top:30px;
+    margin-left:50px;
+}
+
+
+.content-left{
+    width:65%;
+}
+.userInfo>div{
+    margin-bottom: 10px;
+}
+.userHead{
+    margin-bottom: 40px!important;
+}
+
+.main-content{
+}
+
+.customType-list{
+    margin:40px 0;
+}
+
+.customType-list li{
+    float:left;
+    margin-right: 16px;
+    margin-bottom: 16px
+}
+
+.customType-list li a{
+    display: block;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #666;
+    background: #fff;
+    border: 1px solid #b5b5b5;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.customType-list li a.on{
+    color: #4285f4;
+    border: 1px solid #4285f4;
+}
+
+
+.summary{
+    border: 1px solid #dcdcdc;
+}
+.summary>div{
+    margin-bottom: 10px;
+}
+.summary label{
+    display: inline-block;
+    width:120px;
+}
+.summary span{
+    display: inline-block;
+    width:200px;
+}
+
+
+
+.latestArticles{
+    margin-top:30px;
+    border:1px solid #e3e3e3;
+}
+
+.latestArticles .head{
+    margin-bottom: 7px;
+}
+
+.latestArticles ul a{
+    display: inline-block;
+    width:300px;
+}
+.latestArticles .head span{
+    font-size:16px;
+}
+.latestArticles .articleTitle{
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+
+
+.latestArticles ul li a img{
+    content: url("../image/dot_on.png");
+    width:30px;
+    height:30px;
+    vertical-align: top;
+
+}
+
+
+.latestVisitor{
+    margin-top:20px;
+    max-width: 250px;
+    border: 1px solid #d7d7d7;;
+    padding:10px;
+}
+.latestVisitor img{
+    width:44px;
+    height:44px;
+}
+
+.latestVisitor ul li {
+    float:left;
+    text-align: center;
+    padding:15px 10px;
+}
+.latestVisitor ul li  a{
+    display: block;
+    width:50px;
+}
+.latestVisitor ul li  a p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/blogLeft.css}">
+</head>
+<body>
+<div class="main-left fl" th:fragment="blogLeft">
+    <div class="main-left_wrapper">
+        <ul class="userList">
+            <li class="personal_nav">
+                <a th:href="@{/user/userInfo}" class="userInfo_nav">
+                    <img th:src="@{/image/userInfo.png}">
+                    个人资料
+                </a>
+            </li>
+            <li class="setting_nav">
+                <a th:href="@{/user/securitySetting}">
+                    <img th:src="@{/image/security.png}">
+                    安全设置
+                </a>
+            </li>
+            <li class="blogManage_nav">
+                <a th:href="@{/user/articleManager}">
+                    <img th:src="@{/image/blogManage.png}">
+                    博客管理
+                </a>
+                <ul class="blogManage_ul">
+                    <li>
+                        <a th:href="@{/user/articleManager}">
+                            <img th:src="@{/image/articleManage.png}">
+                            文章管理
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/user/customTypeManager}">
+                            <img th:src="@{/image/categories.png}">
+                            分类管理
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/user/draftManager}">
+                            <img th:src="@{/image/draft.png}">
+                            草稿管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="comment_nav">
+                <a th:href="@{/user/commentManager}">
+                    <img th:src="@{/image/comment.png}">
+                    评论留言
+                </a>
+            </li>
+        </ul>
+        <div class="notice_wrapper">
+            <div class="notice">
+                <p>
+                    <img th:src="@{/image/notice.png}">
+                    公告
+                </p>
+                <p>
+                    莫等闲白了少年头
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

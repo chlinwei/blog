@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common/rightTools.css}">
+</head>
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div class="login_wrapper">
+        <form th:action="@{/doLogin}" method="post">
+            <div class="login_welcome">
+                <span>欢迎登录</span>
+            </div>
+            <br>
+            <div class="userName_wrapper">
+                <input id="userName" name="userName" type="text" class="userName" placeholder="用户名" value="">
+            </div>
+            <div id="userNameMsg" class="login_errorMsg" style="display: none;">哈哈哈</div>
+            <br>
+            <div class="passwd_wrapper">
+                <input id="passwd" name="passwd" type="password" class="passwd" placeholder="密码" value="">
+            </div>
+            <div id="passwdMsg" class="login_errorMsg" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION}"></div>
+            <!--<div id="passwdMsg" class="login_errorMsg" th:text="${SPRING_SECURITY_LAST_EXCEPTION}"></div>-->
+            <br>
+            <div class="submit_remember_wrapper">
+                <div class="float_wrapper">
+                    <div class="submit_wrapper fl">
+                        <input id="submit" type="submit" value="登 录">
+                    </div>
+                    <div class="remember_wrapper fr">
+                        <input type="checkbox" id="remember" name="remember-me">
+                        <label for="remember">10天内自动登录&nbsp;&nbsp;</label>
+                        <a>忘记密码</a>
+                    </div>
+                    <div class="clear" style="overflow: hidden"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="html/common/footer::footer"></div>
+<div id="div" th:replace="html/common/rightTools::rightTools">
+</div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

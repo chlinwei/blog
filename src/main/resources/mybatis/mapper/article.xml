@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lw.pers.blog.dao.ArticleDao">
+    <insert id="insertArticle" parameterType="lw.pers.blog.model.Article" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO article( articleTitle, articleContent,
+                            articleTags, articleType,
+                             summary, customTypeId,
+                            userId)
+        VALUES (#{articleTitle},#{articleContent},
+        #{articleTags},#{articleType},
+        #{summary},#{customTypeId},#{userId})
+    </insert>
+    
+    <select id="getArticleById" resultType="lw.pers.blog.model.Article">
+        select * from article WHERE id=#{id}
+    </select>
+
+    <select id="getNextArticleId" resultType="lw.pers.blog.model.Article">
+        select * from article where userId=#{userId } and id &gt; #{id} order by id limit 0,1;
+    </select>
+
+
+    <select id="getLastArticleId" resultType="lw.pers.blog.model.Article">
+        select * from article where userId=#{userId} and id &lt; #{id} order by id desc  limit 0,1;
+    </select>
+    
+    <delete id="delArticleById">
+        DELETE FROM article WHERE id=#{id} AND userId=#{userId}
+    </delete>
+    
+    <update id="updateArticle" parameterType="lw.pers.blog.model.Article">
+        update article set
+            customTypeId=#{customTypeId},
+            articleType=#{articleType},
+            articleTitle=#{articleTitle},
+            articleContent=#{articleContent},
+            customTypeId=#{customTypeId},
+            articleTags=#{articleTags},
+            summary=#{summary}
+        WHERE id=#{id} AND userId=#{userId}
+    </update>
+
+    <select id="getArticlesByUserId" resultType="lw.pers.blog.model.Article">
+        select * from  article
+        <where>
+            and userId=#{userId}
+            <if test="customTypeId!=null">
+                and customTypeId = #{customTypeId}
+            </if>
+            <if test="articleType!=null">
+                and articleType = #{articleType}
+            </if>
+        </where>
+        order by id desc
+    </select>
+    <update id="updateCustomType">
+        update article set customTypeId=#{customTypeId} WHERE userId=#{userId} and id=#{id};
+    </update>
+
+    <select id="getlatestArticlesInSomeone" resultType="lw.pers.blog.model.Article">
+        select * from article WHERE userId=#{userId} ORDER BY id desc limit #{num}
+    </select>
+
+    <select id="countArticles" resultType="java.lang.Integer">
+        select count(*) FROM  article WHERE userId=#{userId}
+    </select>
+    <select id="getAllArticle" resultType="lw.pers.blog.model.Article">
+        select * from article ORDER BY id desc
+    </select>
+    
+    <select id="getlatestArticles" resultType="lw.pers.blog.model.Article">
+        SELECT * FROM article ORDER BY id desc LIMIT #{num}
+    </select>
+
+    <select id="getAllArticleNum" resultType="java.lang.Integer">
+        select count(*) from article;
+    </select>
+    <select id="getArticleByUserIdAndId" resultType="lw.pers.blog.model.Article">
+        select * from article WHERE id=#{id} and userId=#{userId};
+    </select>
+</mapper>

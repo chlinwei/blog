@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>林威的博客</title>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/confirmBox.css}">
+    <link rel="stylesheet" th:href="@{/css/common/articleList.css}">
+    <link rel="stylesheet" th:href="@{/css/userBlog.css}">
+</head>
+<script th:inline="javascript">
+    var userId = [[${userId}]];
+    //此用户是否存在
+    var userIsExist = [[${userIsExist}]];
+
+</script>
+
+
+<body>
+<div th:replace="html/common/header::header"></div>
+<div class="main">
+    <div class="main-top">
+        <div class="userInfo">
+            <div class="userHead">
+                <img>
+                <span class="userName">林威</span>
+            </div>
+            <div class="gender"><label>性别：</label><span></span></div>
+            <div class="birthday"><label>生日：</label><span></span></div>
+            <div class="sign">
+                <label>签名：</label>
+                <span></span>
+            </div>
+            <div class="brief">
+                <label>简介：</label>
+                <span></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="content-left fl">
+            <div class="customType-list">
+                <ul>
+                    <li>
+                        <a th:href="@{'/userBlog/'+${userId}}">主页</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--这里获取文章列表-->
+            <div class="content-list"></div>
+            <div class="pagination"></div>
+        </div>
+        <div class="content-right fl">
+            <div class="summary">
+                <div class="lastLoginTime">
+                    <label>
+                        最近登录：
+                    </label>
+                    <span></span>
+                </div>
+                <div class="createBlogTime">
+                    <label>
+                        创建博客：
+                    </label>
+                    <span></span>
+                </div>
+                <div class="articleNum">
+                    <label>文章总数：</label>
+                    <span></span>
+                </div>
+                <div class="commentNum">
+                    <label>评论总数：</label>
+                    <span></span>
+                </div>
+                <div class="likeNum">
+                    <label>点赞总数：</label>
+                    <span></span>
+                </div>
+
+            </div>
+            <!--最新发布的篇文章-->
+            <div class="latestArticles">
+                <div class="head"><span>最近发布的文章</span></div>
+                <ul></ul>
+            </div>
+            <!--最近访问-->
+            <div class="latestVisitor">
+                <p>最近来访</p>
+                <ul></ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div th:replace="html/common/confirmBox::confirmBox"></div>
+<script th:src="@{/js/common/util.js}"></script>
+<script th:src="@{/js/common/confirmBox.js}"></script>
+<script th:src="@{/js/common/paging.js}"></script>
+<script th:src="@{/js/common/articleList.js}"></script>
+<script th:src="@{/js/userBlog.js}"></script>
+</body>
+</html>
